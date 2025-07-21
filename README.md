@@ -100,7 +100,7 @@ For MODIS and DayMet scripts, API access or local data downloads may be required
 
 If you use this code in a publication, please cite:
 
-Bartlett, M. S., Cultra, E., Geldner, N., & Porporato, A. (2025). *Stochastic ecohydrological perspective on semi-distributed rainfall–runoff dynamics*. arXiv:2503.19220.
+Bartlett, M. S., Cultra, E., Geldner, N., & Porporato, A. (2025). *Stochastic ecohydrological perspective on semi-distributed rainfall–runoff dynamics*.
 
 For data citation:
 - USGS Water Data for the Nation:  
