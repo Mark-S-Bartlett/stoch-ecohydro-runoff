@@ -3,7 +3,7 @@
 
 This repository contains code for for a semi-distributed stochastic ecohydrological model for simulating watershed processes. It integrates storm event rainfall-runoff, vegetation-driven evapotranspiration, and soil moisture dynamics to simulate runoff generation, baseflow, and evapotranpsiration at the watershed scale. The modeling framework is designed for scenario analysis, calibration with USGS data, and integration with remote sensing and reanalysis datasets.
 
-The model and supporting code were developed by Mark S. Bartlett and Elizabeth Cultra as part of ongoing research in probabilistic ecohydrology and watershed-scale hydrologic prediction.
+The model and supporting code were developed by Mark S. Bartlett and Elizabeth Cultra and Amilcare Porporato as part of ongoing research in probabilistic ecohydrology and watershed-scale hydrologic prediction.
 
 ---
 
