@@ -9,6 +9,9 @@ The model and supporting code were developed by Mark S. Bartlett and Elizabeth C
 
 ## 📁 Repository Structure
 
+The respository contains the code for aquiring the data (Baseflow.py, Daymet Data.py and ET_MODIS_data.py), processing the data for the model (Model_Continuous Parameter_Data - FL.py, Model_Continuous Parameter_Data - LA.py,  Model_Long_Term_Calibration_Parameters_FL.py, and  Model_Long_Term_Calibration_Parameters_LA.py # Long-term calibration - LA), and calibrating the model (Model_Calibration.nb ). The data outputs (for the processed data) are in `reports/data`, and the figures of the recent paper 'Stochastic ecohydrological perspective on 
+semi-distributed rainfall-runoff dynamics' may be recreated with the files in `reports/figures`. The code is setup to work with AWS s3 storage, and will need to be modified accordingly to redirect the data storage to a different location.
+
 ```
 stoch-ecohydro-runoff/
 └── stoch-ecohydro-runoff-main/
