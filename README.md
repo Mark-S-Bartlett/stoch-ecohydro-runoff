@@ -87,7 +87,7 @@ For MODIS and DayMet scripts, API access or local data downloads may be required
 
 1. Clone or download the repository.
 2. Install dependencies.
-3. Run Jupyter notebooks in `notebooks/` or Python scripts to:
+3. Run Jupyter and Mathematica notebooks in `notebooks/` or Python scripts to:
    - Preprocess rainfall and ET data
    - Calibrate model parameters
 
