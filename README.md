@@ -1,9 +1,9 @@
 
 # 🌿 Stochastic Ecohydrological Rainfall–Runoff Modeling
 
-This repository contains code for for a semi-distributed stochastic ecohydrological model for simulating watershed processes. It integrates storm event rainfall-runoff, vegetation-driven evapotranspiration, and soil moisture dynamics to simulate runoff generation, baseflow, and evapotranpsiration at the watershed scale. The modeling framework is designed for scenario analysis, calibration with USGS data, and integration with remote sensing and reanalysis datasets.
+This repository contains code for for a semi-distributed stochastic ecohydrological model for characterizing the long-term statistics of watershed processes---progressing stochastic ecohydrology from the point scale to the watershed scale. It integrates storm event rainfall-runoff (here based on the SCS-CNx method), vegetation-driven evapotranspiration, and soil moisture dynamics to characterize the statistics of runoff generation, baseflow, and evapotranpsiration at the watershed scale. The modeling framework is designed for scenario analysis, calibration with USGS data, and integration with remote sensing and reanalysis datasets.
 
-The model and supporting code were developed by Mark S. Bartlett and Elizabeth Cultra and Amilcare Porporato as part of ongoing research in probabilistic ecohydrology and watershed-scale hydrologic prediction.
+The model and supporting code were developed by Mark S. Bartlett, Elizabeth Cultra, and Amilcare Porporato as part of ongoing research in probabilistic ecohydrology and watershed-scale hydrologic prediction.
 
 ---
 
@@ -25,6 +25,7 @@ stoch-ecohydro-runoff/
     │   ├── Model_Continuous Parameter_Data - LA.py # Calibration for Louisiana site
     │   ├── Model_Long_Term_Calibration_Parameters_FL.py # Long-term calibration - FL
     │   └── Model_Long_Term_Calibration_Parameters_LA.py # Long-term calibration - LA
+    │   └── NSE_mapper.ipynb  #                     # Spatial mapping of NSE
     ├── reports/                    # Data and figures used in analysis and publication
     │   ├── data/
     │   │   ├── USGS_gage_event_rainfall_jacksonville.csv #output from running the Model_Continuous Paramter_Data Notebook
@@ -72,7 +73,7 @@ As a result, the framework links SCS-CN runoff generation to fundamental stochas
 
 ## 📦 Requirements
 
-The code is modular and can be run with standard Python tools and packages. A `requirements.txt` file is recommended but not included in the current ZIP. Key packages likely needed:
+The code is modular and can be run with standard Python tools and packages. In the future a `requirements.txt` will be included. Required packaged include but are not limited to
 
 - `numpy`
 - `pandas`
@@ -82,7 +83,7 @@ The code is modular and can be run with standard Python tools and packages. A `r
 - `geopandas`
 - `scipy`
 
-For MODIS and DayMet scripts, API access or local data downloads may be required.
+For MODIS and DayMet scripts, API access (e.g., to NASA data) or local data downloads may be required.
 
 ---
 
@@ -102,7 +103,7 @@ If you use this code in a publication, please cite:
 
 Bartlett, M. S., Cultra, E., Geldner, N., & Porporato, A. (2025). *Stochastic ecohydrological perspective on semi-distributed rainfall–runoff dynamics*.
 
-For data citation:
+For data citation see the paper, which includes:
 - USGS Water Data for the Nation:  
   U.S. Geological Survey, 2016, [DOI: 10.5066/F7P55KJN](https://doi.org/10.5066/F7P55KJN)
 - MODIS ET:  
