@@ -44,7 +44,7 @@
 # MAGIC - **sigmaR² (cm²)**  Rainfall ensemble variance
 # MAGIC - **sigmaQ² (cm²)**  Runoff ensemble variance
 # MAGIC
-# MAGIC Climate pareameters:
+# MAGIC Climate parameters (calculated before rainfall is aggregated into a storm basis):
 # MAGIC - **DI_mean**  Overall average Budyko dryness index
 # MAGIC - **lambda_all**  Overall average frequency of rainfal
 # MAGIC - **alpha_all**   Overall average amount of rainfall per storm event--units mm
@@ -100,6 +100,7 @@
 # MAGIC Note that the alpha and lambda value are found from filtering the event aggregated rainfall and runoff data.
 # MAGIC
 # MAGIC #### Rainfall statistics overall, seasonally, and per month
+# MAGIC These are calculated before the rainfall is aggregated into a storm event basis
 # MAGIC
 # MAGIC Marked Poisson process of rainfall parameters  - Overall Data series
 # MAGIC - **lambda_all** Frequency of rainfall
