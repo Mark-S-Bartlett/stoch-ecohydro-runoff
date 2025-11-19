@@ -7,6 +7,7 @@ import requests, datetime, warnings, folium, baseflow, pickle
 from plotly.offline import plot
 import plotly.express as px
 import contextily as ctx
+from contextily.tile import _calculate_zoom  # internal helper
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
 import pandas as pd
@@ -742,8 +743,21 @@ def visualize_stations(
             alpha=0.7,
         )
 
+    # Get bounds in Web Mercato
+    x0, x1 = ax.get_xlim()
+    y0, y1 = ax.get_ylim()
+
+    # Ensure proper bbox format (west, south, east, north)
+    bbox = (min(x0, x1), min(y0, y1), max(x0, x1), max(y0, y1))
+
+    # Automatically choose zoom (max zoom that covers extent)
+    # Unpack bbox into separate arguments (w, s, e, n)
+    zoom = _calculate_zoom(*bbox)
+    print(zoom)
+    zoom = min(zoom, 14)  # cap at 14 so you don't overload memory
+
     # Add a basemap in the background
-    ctx.add_basemap(ax,zoom="auto", source=ctx.providers.OpenStreetMap.Mapnik)
+    ctx.add_basemap(ax,zoom='auto', source=ctx.providers.OpenStreetMap.HOT) #ctx.providers.OpenStreetMap.Mapnik
 
     # Set map title and axis labels
     ax.set_title(title)
@@ -778,10 +792,13 @@ def visualize_stations(
         # Make the table background transparent
         for key, cell in table.get_celld().items():
             cell.set_facecolor("none")  # Set cell background to transparent
+            #cell.set_text_props(color="white")  # Set text color to white
+            #cell.set_edgecolor("white")  # Set cell edge color to white
+            
 
     # Save the figure to a PDF if a path is provided
     if output_pdf:
-        plt.savefig(output_pdf, format="pdf", bbox_inches="tight")
+        plt.savefig(output_pdf, format="pdf", bbox_inches="tight",dpi=600)
         print(f"Figure saved as {output_pdf}")
 
     plt.tight_layout()

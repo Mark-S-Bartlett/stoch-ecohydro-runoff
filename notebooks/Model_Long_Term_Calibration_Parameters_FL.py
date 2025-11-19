@@ -44,7 +44,7 @@
 # MAGIC - **sigmaR² (cm²)**  Rainfall ensemble variance
 # MAGIC - **sigmaQ² (cm²)**  Runoff ensemble variance
 # MAGIC
-# MAGIC Climate parameters (calculated before rainfall is aggregated into a storm basis):
+# MAGIC Climate pareameters:
 # MAGIC - **DI_mean**  Overall average Budyko dryness index
 # MAGIC - **lambda_all**  Overall average frequency of rainfal
 # MAGIC - **alpha_all**   Overall average amount of rainfall per storm event--units mm
@@ -100,7 +100,6 @@
 # MAGIC Note that the alpha and lambda value are found from filtering the event aggregated rainfall and runoff data.
 # MAGIC
 # MAGIC #### Rainfall statistics overall, seasonally, and per month
-# MAGIC These are calculated before the rainfall is aggregated into a storm event basis
 # MAGIC
 # MAGIC Marked Poisson process of rainfall parameters  - Overall Data series
 # MAGIC - **lambda_all** Frequency of rainfall
@@ -351,7 +350,38 @@ for idx, row in clipped_gages_huc12_huc10_valid[clipped_gages_huc12_huc10_valid[
 # COMMAND ----------
 
 table_data = clipped_gages_huc12_huc10_valid["site_no"].tolist()
-visualize_stations(clipped_gages_huc12_huc10_valid,clipped_gages_huc12_huc10_valid.set_geometry('geometry2').set_crs('EPSG:4326'), gdf_line_color='black', gdf_fill_color='red', gdf2_line_color=  'blue', title = 'USGS Gage Sites in St. Johns River Basin',table_data=table_data,table_bbox =[0.02, 0.02, 0.35, 0.6],output_pdf='StJohnSites.pdf')
+
+# COMMAND ----------
+
+# MAGIC %matplotlib inline
+# MAGIC %load_ext autoreload
+# MAGIC %autoreload 2
+# MAGIC
+# MAGIC import concurrent.futures
+# MAGIC import os, shutil, pickle
+# MAGIC import sys
+# MAGIC import xarray as xr
+# MAGIC import os, pyproj
+# MAGIC import concurrent.futures
+# MAGIC from tqdm import tqdm
+# MAGIC import scipy.stats as stats
+# MAGIC import rioxarray as rxr
+# MAGIC from src.data.utils_s3 import *
+# MAGIC from src.data.utils_files import *
+# MAGIC from src.data.utils_geo import *
+# MAGIC from src.data.utils import *
+# MAGIC from src.data.utils_statistics import *
+# MAGIC
+# MAGIC user_name = dbutils.notebook.entry_point.getDbutils().notebook().getContext().userName().get()
+
+# COMMAND ----------
+
+
+visualize_stations(clipped_gages_huc12_huc10_valid,clipped_gages_huc12_huc10_valid.set_geometry('geometry2').set_crs('EPSG:4326'), gdf_line_color='black', gdf_fill_color='red', gdf2_line_color=  'blue', title = 'USGS Gage Sites in St. Johns River Basin',table_data=table_data,table_bbox =[0.02, 0.03, 0.35, 0.6],output_pdf='StJohnSites.pdf')# 'StJohnSites.pdf'
+
+# COMMAND ----------
+
+ctx.providers
 
 # COMMAND ----------
 
